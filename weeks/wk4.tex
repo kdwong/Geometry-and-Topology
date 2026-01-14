@@ -126,50 +126,82 @@ The corresponding quotient space is plotted below:
 
 Now given a topologcal space \(X\) and an equivalence relation \(\sim\) on it, our goal is to construct a topology on the space \(X/ \sim\).
 
-\begin{proposition}[Quotient Topology] \label{prop:quotient_topology} Suppose $(X, \mathcal{T})$ is a topological space, and \(\sim\) is an equivalence relation on \(X\). Define the canonical projection map:
+\begin{proposition}[Quotient Topology] \label{prop:quotient_topology} 
+Let \((X, \mathcal{T})\) be a topological space, and let \(\sim\) be an equivalence relation on \(X\). 
+Define the canonical projection map
 \[
-p: \;X \rightarrow  X/ \sim  \quad \text{ with } \quad x \mapsto \left\lbrack  x\right\rbrack   
+p : X \to X/\!\sim, 
+\qquad x \mapsto [x],
 \]
-which assigns each point \(x \in  X\) into the equivalence class \(\left\lbrack  x\right\rbrack\). Define a family of subsets \(\widetilde{\mathcal{T}}\) on \(X/ \sim\) by:
+which assigns each point \(x \in X\) to its equivalence class \([x]\).  
+Define a family of subsets \(\widetilde{\mathcal{T}}\) of \(X/\!\sim\) by
 \[
-\widetilde{U} \subseteq  X/ \sim  \text{ is in }\widetilde{\mathcal{T}}\text{ if }{p}^{-1}\left( \widetilde{U}\right) \text{ is in }\mathcal{T}
+\widetilde{U} \subseteq X/\!\sim \;\; \text{is in } \widetilde{\mathcal{T}}
+\quad \Longleftrightarrow \quad p^{-1}(\widetilde{U}) \in \mathcal{T}.
 \]
-Then \(\widetilde{\mathcal{T}}\) is a topology for \(X/ \sim\).  
+Then \(\widetilde{\mathcal{T}}\) is a topology on \(X/\!\sim\).  
 
-We say $(X/\sim\, \widetilde{\mathcal{T}})$ the {\bf quotient topology} of the quotient space, and \(X/ \sim\).
+We call \((X/\!\sim, \widetilde{\mathcal{T}})\) the \emph{quotient space}, and \(\widetilde{\mathcal{T}}\) the \emph{quotient topology}.
 \end{proposition}
 
-\begin{proof} 1. \({p}^{-1}\left( {X/ \sim  }\right)  = X \in  \mathcal{T}\) and \({p}^{-1}\left( \varnothing \right)  = \varnothing  \in  \mathcal{T}\), which implies \(X/ \sim   \in  \widetilde{\mathcal{T}}\) and \(\varnothing  \in  \widetilde{\mathcal{T}}\).
-
-2. Suppose that \(\widetilde{U},\widetilde{V} \in  \widetilde{\mathcal{T}}\), then we imply
-\[
-{p}^{-1}\left( \widetilde{U}\right),{p}^{-1}\left( \widetilde{V}\right)  \in  \mathcal{T} \Rightarrow  {p}^{-1}\left( {\widetilde{U} \cap  \widetilde{V}}\right)  \in  \mathcal{T},
-\]
-i.e., \(\widetilde{U} \cap  \widetilde{V} \in  \widetilde{\mathcal{T}}\).
-
-3. Following the similar argument in (2), and the relation
-\[
-{p}^{-1}\left( {\bigcup {\widetilde{U}}_{i}}\right)  = \bigcup {p}^{-1}\left( {\widetilde{U}}_{i}\right),
-\]
-we conclude that \(\widetilde{T}\) is closed under countably union, and the proof is complete.
+\begin{proof}
+We verify the topology axioms.
+\begin{enumerate}
+    \item Since 
+    \[
+    p^{-1}(X/\!\sim) = X \in \mathcal{T}, 
+    \qquad 
+    p^{-1}(\varnothing) = \varnothing \in \mathcal{T},
+    \]
+    it follows that \(X/\!\sim, \varnothing \in \widetilde{\mathcal{T}}\).
+    
+    \item Let \(\widetilde{U}, \widetilde{V} \in \widetilde{\mathcal{T}}\). Then 
+    \[
+    p^{-1}(\widetilde{U}), \; p^{-1}(\widetilde{V}) \in \mathcal{T},
+    \]
+    so 
+    \[
+    p^{-1}(\widetilde{U} \cap \widetilde{V}) 
+    = p^{-1}(\widetilde{U}) \cap p^{-1}(\widetilde{V}) \in \mathcal{T}.
+    \]
+    Hence \(\widetilde{U} \cap \widetilde{V} \in \widetilde{\mathcal{T}}\).
+    
+    \item For any collection \(\{ \widetilde{U}_i \}_{i \in I} \subseteq \widetilde{\mathcal{T}}\), we have
+    \[
+    p^{-1}\!\left(\bigcup_{i \in I} \widetilde{U}_i\right) 
+    = \bigcup_{i \in I} p^{-1}(\widetilde{U}_i).
+    \]
+    Since \(\mathcal{T}\) is closed under arbitrary unions, the right-hand side is in \(\mathcal{T}\).  
+    Thus \(\bigcup_{i \in I} \widetilde{U}_i \in \widetilde{\mathcal{T}}\).
+\end{enumerate}
+Therefore, \(\widetilde{\mathcal{T}}\) is a topology on \(X/\!\sim\).
 \end{proof}
 
 \begin{remark}
-1. \autoref{prop:quotient_topology} claims that \(\widetilde{U}\) is open in \(X/ \sim\) iff \({p}^{-1}\left( \widetilde{U}\right)\) is open in \(X\). The general question is that, does \(p\left( U\right)\) is open in \(X/ \sim\), given that \(U\) is open in \(X\) ? This may not necessarily hold. (See example (6.4)) In general \({p}^{-1}\left( {p\left( U\right) }\right)\) is strictly larger than \(U\), and may not be necessarily open in \(X\), even when \(U\) is open.
+1. \autoref{prop:quotient_topology} claims that \(\widetilde{U}\) is open in \(X/ \sim\) iff \({p}^{-1}\left( \widetilde{U}\right)\) is open in \(X\). The general question is that, does \(p\left( U\right)\) is open in \(X/ \sim\), given that \(U\) is open in \(X\) ? This may not necessarily hold. (See \autoref{ex:mobius_not_open}) In general \({p}^{-1}\left( {p\left( U\right) }\right)\) is strictly larger than \(U\), and may not be necessarily open in \(X\), even when \(U\) is open.
 
 2. By definition, we can show that \(p\) is continuous.
 \end{remark}
 
 To fill the gap on the question shown in the remark, we consider the notion of the open mapping:
-\begin{definition}\label{def:open_mapping} [Open Mapping] A function \(f: X \rightarrow  Y\) between two topological spaces is an open mapping if for each open \(U\) in \(X,f\left( U\right)\) is open in \(Y\).
+\begin{definition}[Open mapping]\label{def:open_mapping}
+A function \(f:X\to Y\) between topological spaces is \emph{open} if for every open set \(U\subseteq X\), the image \(f(U)\) is open in \(Y\).
 \end{definition}
 
+\begin{example}\label{ex:mobius_not_open}
+Let \(p:[0,1]\times[0,1]\to M:=([0,1]\times[0,1])/\!\sim\) be the quotient map to the Möbius band, where \((0,y)\sim(1,1-y)\).
+Then \(p\) is \emph{not} an open mapping.
 
-\begin{example} The mapping \(p: \left\lbrack  {0,1}\right\rbrack   \times  \left\lbrack  {0,1}\right\rbrack   \rightarrow  \left( {\left\lbrack  {0,1}\right\rbrack   \times  \left\lbrack  {0,1}\right\rbrack  }\right) / \sim\) sending the square to the Mobius band \(M\) is not an open mapping: Consider the open ball \(U = {B}_{1/2}\left( \left( {0,0}\right) \right)\) in \(\left\lbrack  {0,1}\right\rbrack   \times  \left\lbrack  {0,1}\right\rbrack\). Note that \(p\left( U\right)\) is open in \(M\) iff \({p}^{-1}\left( {p\left( U\right) }\right)\) is open in \(\left\lbrack  {0,1}\right\rbrack   \times  \left\lbrack  {0,1}\right\rbrack\). We can calculate \({p}^{-1}\left( {p\left( U\right) }\right)\) explicitly:
+Indeed, let \(U:=B_{1/2}((0,0))\cap([0,1]\times[0,1])\), which is open in the square (subspace topology).
+By the quotient definition, \(p(U)\) is open in \(M\) iff \(p^{-1}(p(U))\) is open in \([0,1]\times[0,1]\).
+But
 \[
-{p}^{-1}\left( {p\left( U\right) }\right)  = U \cup  \{ \left( {1,y}\right)  \mid  1/2 \leq  y \leq  1\},
+p^{-1}\big(p(U)\big)
+=\text{sat}(U)
+=U\ \cup\ \bigl(\{1\}\times(1/2,1]\bigr),
 \]
-which is not open.
+because for each \((0,y)\in U\) (which forces \(0\le y<1/2\)) its equivalent point on the right edge is \((1,1-y)\in\{1\}\times(1/2,1]\).
+The set \(\{1\}\times(1/2,1]\) is not open in the subspace topology of the square (points on the boundary \(x=1\) have no two-sided neighborhood contained in that vertical segment), hence \(p^{-1}(p(U))\) is not open. Therefore \(p(U)\) is not open in \(M\), and \(p\) is not an open map.
 \end{example}
 
 
